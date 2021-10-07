@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/42101f7c-ca49-4405-ba5a-b2e5ecb011cd/resourceGroups/logic-app-sample/providers/Microsoft.Web/sites/owgluserms",
+    "appService.deploySubpath": "."
+}
