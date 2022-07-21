@@ -6,6 +6,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 @Injectable()
 export class UsersService {
   private users: CreateUserDto[] = []
+  foo: string;
   create(createUserDto: CreateUserDto) {
     const existingUser = this.users.find((x) => x.id == createUserDto.id);
     try {
@@ -41,4 +42,8 @@ export class UsersService {
   dummyMethod(a: string, b: string) {
     console.log('a is used, b is unused : ' + a);
   }
+
+  hello = () => {
+    this.foo = 'Message';
+  };
 }
