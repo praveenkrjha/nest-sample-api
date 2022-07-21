@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpStatus } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -12,6 +12,12 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
+  //connented code should throw sonar error
+  // @Get()
+  // findAll() {
+  //   return this.usersService.findAll();
+  // }
+
   @Get()
   findAll() {
     return this.usersService.findAll();
@@ -19,7 +25,12 @@ export class UsersController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    const user = this.usersService.findOne(+id);
+    if (user) {
+      return user;
+    } else {
+      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+    }
   }
 
   @Patch(':id')
@@ -30,5 +41,14 @@ export class UsersController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
+  }
+
+  @Get()
+  badApi() {
+    //put code ater return statement
+    //DEAD CODE
+    return this.usersService.findAll();
+    let code = 0;
+    return code;
   }
 }

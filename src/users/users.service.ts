@@ -7,12 +7,11 @@ import { UpdateUserDto } from './dto/update-user.dto';
 export class UsersService {
   private users: CreateUserDto[] = []
   create(createUserDto: CreateUserDto) {
-    var existingUser = this.users.find(x=>x.id == createUserDto.id);
-    if(existingUser){
+    const existingUser = this.users.find((x) => x.id == createUserDto.id);
+    if (existingUser) {
       existingUser.name = createUserDto.name;
       existingUser.age = createUserDto.age;
-    }
-    else{
+    } else {
       this.users.push(createUserDto);
     }
     //console.log(`createUserDto=${JSON.stringify(createUserDto)}`);
@@ -24,7 +23,7 @@ export class UsersService {
   }
 
   findOne(id: number) {
-    var existingUser = this.users.find(x=>x.id == id);
+    const existingUser = this.users.find((x) => x.id == id);
     return existingUser;
   }
 
