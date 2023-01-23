@@ -45,7 +45,7 @@ export class UsersController {
 
   @Get()
   badApi() {
-    //put code ater return statement
+    //code after return statement
     //DEAD CODE
     return this.usersService.findAll();
     let code = 0;
