@@ -19,6 +19,7 @@ export class UsersService {
     } catch {}
     //console.log(`createUserDto=${JSON.stringify(createUserDto)}`);
     return createUserDto;
+    let abc ="Wont not run";
   }
 
   findAll() {
